@@ -36,25 +36,25 @@ func multilanguageByJson(lang string) {
 
 // multilanguageByHardcoreText parse lang by text
 func multilanguageByText() {
-	messageEn := i18n.Message{ //1
+	messageEn := i18n.Message{
 		ID:    "hello",
 		Other: "Hello!",
 	}
-	messageFr := i18n.Message{ //2
+	messageFr := i18n.Message{
 		ID:    "hello",
 		Other: "Bonjour!",
 	}
 
-	bundle := i18n.NewBundle(language.English)       //1
-	bundle.AddMessages(language.English, &messageEn) //2
-	bundle.AddMessages(language.French, &messageFr)  //3
-	localizer := i18n.NewLocalizer(bundle,           //4
+	bundle := i18n.NewBundle(language.English)
+	bundle.AddMessages(language.English, &messageEn)
+	bundle.AddMessages(language.French, &messageFr)
+	localizer := i18n.NewLocalizer(bundle,
 		language.French.String(),
 		language.English.String())
-	localizeConfig := i18n.LocalizeConfig{ //5
+	localizeConfig := i18n.LocalizeConfig{
 		MessageID: "hello",
 	}
-	localization, _ := localizer.Localize(&localizeConfig) //6
+	localization, _ := localizer.Localize(&localizeConfig)
 
 	fmt.Println(localization)
 }
